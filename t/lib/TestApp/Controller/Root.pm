@@ -26,7 +26,7 @@ sub defaut : Path
 
 	push @a, $c->user ? 1 : 0;									# has_user
 	push @a, $c->user ? $c->user->id : '';						# user id
-	push @a, $c->user ? join '|', sort $c->user->roles : '';	# user roles
+	push @a, $c->user ? join ';', sort $c->user->roles : '';	# user roles
 
 	$c->res->body(join "\n", @a);
 }
@@ -49,6 +49,14 @@ sub protected : Local
 	$c->assert_user_roles('user', 'tester');
 
 	$c->res->body('OK');
+}
+
+sub headers : Local
+{
+	my $self	= shift;
+	my $c		= shift;
+
+	$c->res->body($c->req->headers->as_string);
 }
 
 1;

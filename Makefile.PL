@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Catalyst authentication credentials from HTTP headers",
   "AUTHOR" => "Mike Eldridge <diz\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "Catalyst::Plugin::Authorization::Roles" => "0.08",
     "Test::WWW::Mechanize::Catalyst" => "0.52"
   },
   "CONFIGURE_REQUIRES" => {
@@ -25,7 +26,7 @@ my %WriteMakefileArgs = (
     "Catalyst" => "5.80",
     "Moose" => "2.00"
   },
-  "VERSION" => "0.01",
+  "VERSION" => "0.02",
   "test" => {
     "TESTS" => "t/*.t"
   }
